@@ -1,0 +1,12 @@
+node_modules/
+client/node_modules/
+client/dist/
+.env
+.env.local
+.env.*.local
+public/uploads/*
+!public/uploads/.gitkeep
+npm-debug.log*
+.vscode/
+.idea/
+*.log

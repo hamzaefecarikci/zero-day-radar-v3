@@ -1,0 +1,27 @@
+{
+  "name": "zero-day-radar",
+  "version": "0.1.0",
+  "description": "Kritik guvenlik aciklari (CVE) takip platformu",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nodemon index.js",
+    "dev": "npx nodemon index.js",
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "lint": "echo \"lint henuz kurulmadi\" && exit 0",
+    "test": "echo \"test henuz kurulmadi\" && exit 0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
