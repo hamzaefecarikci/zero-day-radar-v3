@@ -10,7 +10,8 @@
     "build": "npm --prefix client run build",
     "lint": "echo \"lint henuz kurulmadi\" && exit 0",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "seed": "node db/seed.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
