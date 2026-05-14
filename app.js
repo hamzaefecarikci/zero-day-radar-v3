@@ -76,7 +76,7 @@ app.use((req, res, next) => {
 // Global hata yakalayicisi
 app.use((err, req, res, next) => {
     if (err.code === "EBADCSRFTOKEN") {
-        return res.status(403).json({ error: "Gecersiz CSRF token." });
+        return res.status(403).json({ error: "Gecersiz CSRF token.", code: "CSRF_INVALID" });
     }
     if (err instanceof multer.MulterError) {
         const message = err.code === "LIMIT_FILE_SIZE"

@@ -57,10 +57,6 @@ export default function AdminAnnouncementForm() {
                     <input value={form.title} onChange={update("title")} required maxLength={200} />
                 </label>
                 <label>
-                    Slug (bos birakirsan basliktan uretilir)
-                    <input value={form.slug} onChange={update("slug")} maxLength={180} />
-                </label>
-                <label>
                     Icerik
                     <textarea value={form.body} onChange={update("body")} rows={10} />
                 </label>
