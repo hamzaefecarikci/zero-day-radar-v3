@@ -45,9 +45,31 @@ async function request(method, url, body) {
     return data;
 }
 
+// multipart/form-data icin ayri bir gonderici (Content-Type'i tarayici belirler)
+async function postForm(url, formData) {
+    const headers = { "X-CSRF-Token": await getCsrfToken() };
+    const res = await fetch(url, {
+        method: "POST",
+        credentials: "include",
+        headers,
+        body: formData
+    });
+    const isJson = (res.headers.get("content-type") || "").includes("application/json");
+    const data = isJson ? await res.json() : null;
+    if (!res.ok) {
+        if (res.status === 403) invalidateCsrfToken();
+        const message = (data && data.error) || `Istek basarisiz (${res.status})`;
+        const err = new Error(message);
+        err.status = res.status;
+        throw err;
+    }
+    return data;
+}
+
 export const api = {
     get: (url) => request("GET", url),
     post: (url, body) => request("POST", url, body),
     put: (url, body) => request("PUT", url, body),
-    del: (url) => request("DELETE", url)
+    del: (url) => request("DELETE", url),
+    postForm
 };

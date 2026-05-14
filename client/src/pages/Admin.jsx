@@ -1,14 +1,15 @@
+import { Link } from "react-router-dom";
+
 export default function Admin({ user }) {
     return (
         <section className="card">
             <h2>Admin Paneli</h2>
-            <p>Merhaba <strong>{user.fullname}</strong> — bu sayfa iskelet asamasinda yer tutucudur.</p>
-            <p>Sonraki adimlarda eklenecek modulleri:</p>
-            <ul>
-                <li>CVE / zafiyet kayitlarini ekleme, guncelleme, silme</li>
-                <li>Duyuru / haber modulu</li>
-                <li>Galeri yukleme (public/uploads/)</li>
-                <li>Online kullanici ve IP tabanli ziyaretci sayaci</li>
+            <p>Merhaba <strong>{user.fullname}</strong>.</p>
+            <ul className="admin-links">
+                <li><Link to="/admin/vulnerabilities">Zafiyet Yonetimi</Link></li>
+                <li><Link to="/admin/announcements">Duyuru Yonetimi</Link></li>
+                <li><Link to="/admin/gallery">Galeri Yonetimi</Link></li>
+                <li><Link to="/admin/users">Kullanici Yonetimi</Link></li>
             </ul>
         </section>
     );
